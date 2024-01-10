@@ -26,7 +26,7 @@
           <h5>Data User</h5>
         </div>
         <div class="card-body">
-          <button class="btn bg-danger mb-2" data-toggle="modal" data-target="#ModalRecycleBin"><i class="fas fa-recycle"></i> Recycle Bin</button>
+
           <table id="example1" class="table table-hover">
             <thead class="bg-danger">
               <th>ID_user</th>
@@ -38,7 +38,7 @@
             </thead>
 
             <?php
-            $sql = "SELECT * FROM user WHERE dihapus_pada IS NULL";
+            $sql = "SELECT * FROM user";
             $query = mysqli_query($koneksi, $sql);
             while ($kolom = mysqli_fetch_array($query)) {
             ?>
@@ -164,56 +164,3 @@
   </div>
 </div>
 
-
-<!-- modal recycle bin -->
-<div class="modal fade" id="ModalRecycleBin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">data penghapusan sementara</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <table class="table table-hover">
-          <thead class="bg-danger">
-            <th>ID_user</th>
-            <th>nama</th>
-            <th>username</th>
-            <th>dihapus pada</th>
-
-            <th>Aksi</th>
-          </thead>
-
-          <?php
-          $sql = "SELECT * FROM user WHERE dihapus_pada IS NOT NULL";
-          $query = mysqli_query($koneksi, $sql);
-          while ($kolom = mysqli_fetch_array($query)) {
-          ?>
-            <tr>
-              <td><?= $kolom['id_user']; ?></td>
-              <td><?= $kolom['nama']; ?></td>
-              <td><?= $kolom['username']; ?></td>
-              <td><?= $kolom['dihapus_pada']; ?></td>
-              <td>
-                <a onclick="return confirm('yakin akan menghapus data ini secara permanen?')" href="aksi/user.php?aksi=restore&id_user=<?= $kolom['id_user']; ?>"> <i class="fas fa-trash-restore"></i></a>
-
-                &nbsp;
-
-                <a onclick="return confirm('yakin akan menghapus data ini secara permanen?')" href="aksi/user.php?aksi=hapus-permanen&id_user=<?= $kolom['id_user']; ?>"> <i class="fas fa-eraser"></i></a>
-
-              </td>
-            </tr>
-          <?php
-          }
-          ?>
-
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

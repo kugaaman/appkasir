@@ -72,6 +72,14 @@ else if($_GET['p']=='restore'){
     $title= "restore konten ";
     $konten = "konten/restore.php";
 }
+else if($_GET['p']=='pelanggan'){
+    $title= " data pelanggan";
+    $konten = "konten/pelanggan.php";
+}
+else if($_GET['p']=='produk'){
+    $title= " dataproduk";
+    $konten = "konten/produk.php";
+}
 
 
 // menu untuk siswa

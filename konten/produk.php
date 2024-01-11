@@ -30,6 +30,7 @@
                     <table id="example1" class="table table-hover">
                         <thead class="bg-danger">
                             <th>ProdukID</th>
+                            <th>Barcode</th>
                             <th>Nama Produk</th>
                             <th>Harga</th>
                             <th>Stok</th>
@@ -43,8 +44,9 @@
                         ?>
                             <tr>
                                 <td><?= $kolom['ProdukID']; ?></td>
+                                <td><?= $kolom['Barcode']; ?></td>
                                 <td><?= $kolom['NamaProduk']; ?></td>
-                                <td><?= $kolom['Harga']; ?></td>
+                                <td><?= number_format( $kolom['Harga']); ?></td>
                                 <td><?= $kolom['Stok']; ?></td>
                                 <td>
 
@@ -75,11 +77,14 @@
                                                 <input type="hidden" name="aksi" value="ubah">
                                                 <input type="hidden" name="ProdukID" value="<?= $kolom['ProdukID']; ?>">
 
+                                                <label for="Barcode">Barcode</label>
+                                                <input type="text" name="Barcode" value="<?= $kolom['Barcode']; ?>" class="form-control" required>
+
                                                 <label for="NamaProduk">Nama Produk</label>
                                                 <input type="text" name="NamaProduk" value="<?= $kolom['NamaProduk']; ?>" class="form-control" required>
 
                                                 <label for="Harga">Harga</label>
-                                                <input type="text" name="Harga" value="<?= $kolom['Harga']; ?>" class="form-control" required>
+                                                <input type="text" name="Harga" value="<?= number_format($kolom['Harga']) ; ?>" class="form-control" required>
 
                                                 <label for="Stok">Stok</label>
                                                 <input type="Stok" name="Stok" value="<?= $kolom['Stok']; ?>" class="form-control" required>
@@ -128,6 +133,9 @@
                 <form action="aksi/produk.php" method="post">
                     <input type="hidden" name="aksi" value="tambah">
                     <input type="hidden" name="ProdukID">
+
+                    <label for="Barcode">Barcode</label>
+                    <input type="text" name="Barcode" class="form-control" required>
 
                     <label for="NamaProduk">NamaProduk</label>
                     <input type="text" name="NamaProduk" class="form-control" required>

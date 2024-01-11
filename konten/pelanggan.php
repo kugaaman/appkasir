@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-body">
                     <table id="example1" class="table table-hover">
-                        <thead class="bg-blue">
+                        <thead class="bg-danger">
                             <th>ID</th>
                             <th>Nama Pelanggan</th>
                             <th>Alamat</th>
@@ -79,7 +79,7 @@
                                                 <label for="nomortelepon">No Handphone</label>
                                                 <input type="text" name="nomortelepon" value="<?= $kolom['NomorTelepon']; ?>" class="form-control" required>
                                                 <br>
-                                                <button type="submit" class="btn btn-block bg-blue"> <i class="fas fa-save"></i> Simpan </button>
+                                                <button type="submit" class="btn btn-block bg-danger"> <i class="fas fa-save"></i> Simpan </button>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -93,7 +93,7 @@
                         ?>
                     </table>
 
-                    <button type="button" class="btn bg-info btn-block mt-3" data-toggle="modal" data-target="#modaltambah"><i class="fas fa-plus"></i>Tambah Produk</button>
+                    <button type="button" class="btn bg-danger btn-block mt-3" data-toggle="modal" data-target="#modaltambah"><i class="fas fa-plus"></i>Tambah Pelanggan</button>
 
                 </div>
             </div>
@@ -127,7 +127,7 @@
                     <label for="nomortelepon">NomorTelepon</label>
                     <input type="text" name="nomortelepon" class="form-control" required>
                     <br>
-                    <button type="submit" class="btn btn-block bg-blue"> <i class="fas fa-save"></i> Simpan </button>
+                    <button type="submit" class="btn btn-block bg-danger"> <i class="fas fa-save"></i> Simpan </button>
                 </form>
             </div>
             <div class="modal-footer">

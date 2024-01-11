@@ -72,6 +72,8 @@ else if($_GET['p']=='restore'){
     $title= "restore konten ";
     $konten = "konten/restore.php";
 }
+
+// NEW APPKASIR
 else if($_GET['p']=='pelanggan'){
     $title= " data pelanggan";
     $konten = "konten/pelanggan.php";
@@ -80,6 +82,11 @@ else if($_GET['p']=='produk'){
     $title= " dataproduk";
     $konten = "konten/produk.php";
 }
+else if($_GET['p']=='tambah'){
+    $title= " tambah penjualan";
+    $konten = "konten/tambah.php";
+}
+
 
 
 // menu untuk siswa

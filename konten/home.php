@@ -1,47 +1,32 @@
 <?php
-// menghitung peserta didik
-// $sql_siswa = "SELECT COUNT(id_siswa) AS jumlah_siswa FROM siswa WHERE dihapus_pada IS NULL";
-// $query_siswa = mysqli_query($koneksi, $sql_siswa);
-// $siswa = mysqli_fetch_array($query_siswa);
-// $jumlah_siswa = $siswa['jumlah_siswa'];
+// menghitung produk!!
+
+$sql_produk = "SELECT COUNT(ProdukID) AS total_produk FROM produk";
+$query_produk = mysqli_query($koneksi, $sql_produk);
+$produk = mysqli_fetch_array($query_produk);
+$total_produk = $produk['total_produk'];
 
 
-// // Menghitung Jumlah Transaksi
-// if ($_SESSION['menu'] == 'MANAJEMEN') {
-//   $sql_jt = "SELECT COUNT(id_bayar) AS jumlah_transaksi FROM bayar WHERE dihapus_pada IS NULL";
-// } else {
-//   $id_siswa = $_SESSION['id'];
-//   $sql_jt = "SELECT COUNT(id_bayar) AS jumlah_transaksi FROM bayar WHERE dihapus_pada IS NULL AND id_siswa=$id_siswa";
-// }
-//   $query_jt=mysqli_query($koneksi,$sql_jt);
-//   $jt=mysqli_fetch_array($query_jt);
-//   $jumlah_transaksi=$jt['jumlah_transaksi'];
+// Menghitung Jumlah Transaksi
+  $sql_jt = "SELECT COUNT(PenjualID) AS jumlah_transaksi FROM penjual";
+  $query_jt=mysqli_query($koneksi,$sql_jt);
+  $jt=mysqli_fetch_array($query_jt);
+  $jumlah_transaksi=$jt['jumlah_transaksi'];
 
 
-//   // Menghitung total Transaksi
-// if ($_SESSION['menu'] == 'MANAJEMEN') {
-//   $sql_tt = "SELECT SUM(nominal_bayar) AS total_transaksi FROM bayar WHERE dihapus_pada IS NULL";
-// } else {
-//   $id_siswa = $_SESSION['id'];
-//   $sql_tt = "SELECT SUM(nominal_bayar) AS total_transaksi FROM bayar WHERE dihapus_pada IS NULL AND id_siswa=$id_siswa";
-// }
-//   $query_tt=mysqli_query($koneksi,$sql_tt);
-//   $tt=mysqli_fetch_array($query_tt);
-//   $total_transaksi=$tt['total_transaksi'];
 
+  // Menghitung total Transaksi
 
-//   // menghitung total tunggakan
-//   $tanggal_jatuh_tempo=date('Y-m-d');
-//   if($_SESSION['menu']=='MANAJEMEN'){
-//     $sql = "SELECT SUM(biaya.jumlah_biaya-tagihan.total_terbayar-tagihan.potongan) AS total_tunggakan FROM tagihan,siswa,biaya,periode WHERE tagihan.dihapus_pada IS NULL AND tagihan.id_siswa=siswa.id_siswa AND tagihan.id_biaya=biaya.id_biaya AND biaya.id_periode=periode.id_periode AND biaya.id_periode=periode.id_periode AND biaya.tanggal_jatuh_tempo<'$tanggal_jatuh_tempo'";
-//     } else {
-//     $id_siswa=$_SESSION['id'];
-//     $sql = "SELECT SUM(biaya.jumlah_biaya-tagihan.total_terbayar-tagihan.potongan) AS total_tunggakan FROM tagihan,siswa,biaya,periode WHERE tagihan.dihapus_pada IS NULL AND tagihan.id_siswa=siswa.id_siswa AND tagihan.id_biaya=biaya.id_biaya AND biaya.id_periode=periode.id_periode AND biaya.id_periode=periode.id_periode AND biaya.tanggal_jatuh_tempo<'$tanggal_jatuh_tempo' AND tagihan.id_siswa=$id_siswa";
-//     }
+  $sql_tt = "SELECT SUM(TotalHarga) AS total_transaksi FROM penjual";
+  $query_tt=mysqli_query($koneksi,$sql_tt);
+  $tt=mysqli_fetch_array($query_tt);
+  $total_transaksi=$tt['total_transaksi'];
 
-//     $query_tunggakan=mysqli_query($koneksi,$sql);
-//     $tunggakan=mysqli_fetch_array($query_tunggakan);
-//     $total_tunggakan=$tunggakan['total_tunggakan'];
+// total pelanggan
+  $sql_tp = "SELECT COUNT(PelangganID) AS total_pelanggan FROM pelanggan";
+  $query_tp=mysqli_query($koneksi,$sql_tp);
+  $tp=mysqli_fetch_array($query_tp);
+  $total_pelanggan=$tp['total_pelanggan'];
 
 ?>
 
@@ -77,8 +62,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3></h3>
-
+                <h3><?=$total_produk ?></h3>
                 <p>Produk</p>
               </div>
               <div class="icon">
@@ -92,7 +76,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3></h3>
+                <h3><?= $jumlah_transaksi ?></h3>
 
                 <p>Jumlah Transaksi</p>
               </div>
@@ -107,7 +91,7 @@
             <!-- small box -->
             <div class="small-box bg-purple">
               <div class="inner">
-                <h3>Rp.</h3>
+                <h3>Rp. <?= number_format($total_transaksi) ?></h3>
 
                 <p>Total Transaksi</p>
               </div>
@@ -122,9 +106,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>Rp.</h3>
+                <h3> <?=($total_pelanggan) ?></h3>
 
-                <p>Total Keuntungan</p>
+                <p>jumlah Pelanggan</p>
               </div>
               <div class="icon">
                 <i class="fas fa-exclamation-triangle"></i>

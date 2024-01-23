@@ -86,6 +86,14 @@ else if($_GET['p']=='tambah'){
     $title= " tambah penjualan";
     $konten = "konten/tambah.php";
 }
+else if($_GET['p']=='histori'){
+    $title= " histori penjualan";
+    $konten = "konten/histori.php";
+}
+else if($_GET['p']=='infojual'){
+    $title= "informasi detail penjualan";
+    $konten = "konten/infojual.php";
+}
 
 
 

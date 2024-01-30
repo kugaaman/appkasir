@@ -27,12 +27,12 @@
             <div class="small-box bg-info">
               <div class="inner">
               
-                <p>Laporan Peserta Didik</p>
+                <p>Laporan Produk</p>
               </div>
               <div class="icon">
                 <i class="fas fa-user"></i>
               </div>
-              <a href="pdf/output/laporan_peserta_didik.php" target="_blank" class="small-box-footer"> Cetak <i class="fas fa-print"></i></a>
+              <a href="pdf/output/laporan_produk.php" target="_blank" class="small-box-footer"> Cetak <i class="fas fa-print"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -42,12 +42,12 @@
               <div class="inner">
             
 
-                <p>Laporan Pembayaran Umum </p>
+                <p>Laporan Pelanggan </p>
               </div>
               <div class="icon">
                 <i class="fas fa-money-bill "></i>
               </div>
-              <a href="#" data-toggle="modal" data-target="#ModalBayarUmum" class="small-box-footer"> cetak <i class="fas fa-print"></i></a>
+              <a href="pdf/output/laporan_pelanggan.php" target="blank" class="small-box-footer"> cetak <i class="fas fa-print"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -57,12 +57,12 @@
               <div class="inner">
               
 
-                <p>Laporan Pembayaran Per-Siswa</p>
+                <p>Laporan Penjualan</p>
               </div>
               <div class="icon">
                 <i class="fas fa-money-bill"></i>
               </div>
-              <a href="" data-toggle="modal" data-target="#ModalBayarSiswa" class="small-box-footer"> cetak <i class="fas fa-print"></i></a>
+              <a href="#" data-toggle="modal" data-target="#Modalpenjualan" class="small-box-footer"> cetak <i class="fas fa-print"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -70,12 +70,12 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <p>Laporan Tunggakan</p>
+                <p>Laporan penjualan per-produk</p>
               </div>
               <div class="icon">
                 <i class="fas fa-exclamation-triangle"></i>
               </div>
-              <a href="#" data-toggle="modal" data-target="#modalTunggakan" class="small-box-footer"> cetak <i class="fas fa-print"></i></a>
+              <a href="#" data-toggle="modal" data-target="#modalperproduk" class="small-box-footer"> cetak <i class="fas fa-print"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -89,8 +89,8 @@
   <!-- /.content-wrapper -->
 
 
-  <!-- modal laporan pembayaran umum -->
-  <div class="modal fade" id="ModalBayarUmum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- modal laporan penjualann -->
+  <div class="modal fade" id="Modalpenjualan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -100,12 +100,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="pdf/output/laporan_pembayaran_umum.php" method="get" target="blank">
+        <form action="pdf/output/laporan_penjualan.php" method="get" target="blank">
 
-          <label for="tanggal_awal">tanggal awal periode</label>
+          <label for="tanggal_awal">tanggal awal penjualan</label>
           <input type="date" name="tanggal_awal" class="form-control" required>
 
-          <label for="tanggal_akhir">tanggal akhir periode</label>
+          <label for="tanggal_akhir">tanggal akhir penjualan</label>
           <input type="date" name="tanggal_akhir" class="form-control" required>
           <br>
           <button type="submit" class="btn btn-block bg-danger"><i class="fas fa-print"></i>cetak</button>
@@ -120,75 +120,42 @@
   </div>
 </div>
 
-<!-- modal laporan tunggakan -->
-<div class="modal fade" id="modalTunggakan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- modal Laporan Pembayran Per produk -->
+<div class="modal fade" id="modalperproduk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">pilih batas waktu tunggakan</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Pilih penjualan dan produk</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="pdf/output/laporan_tunggakan.php" method="get" target="blank">
-
-          <label for="tanggal_jatuh_tempo">tanggal jatuh tempo</label>
-          <input type="date" name="tanggal_jatuh_tempo" class="form-control" required>
-          <br>
-          <button type="submit" class="btn btn-block bg-danger"><i class="fas fa-print"></i>cetak</button>
-
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- modal laporan pembayaran per siswa -->
-<div class="modal fade" id="ModalBayarSiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">pilih siswa & periode laporan pembayaran</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="pdf/output/laporan_pembayaran_siswa.php" method="get" target="blank">
-
-        <label for="id_siswa">Siswa</label>
-        <select name="id_siswa" class="form-control" required>
-          <option value="">-- pilih siswa --</option>
-
-          <?php
-          $sql=" SELECT * FROM siswa WHERE dihapus_pada IS NULL ORDER BY nis ASC";
-          $query= mysqli_query($koneksi,$sql);
-          while($siswa=mysqli_fetch_array($query)){
-            echo "<option value='$siswa[id_siswa]'>$siswa[nis]-$siswa[nama] ($siswa[kelas])</option>";
-          }
-
-          ?>
-        </select>
-
-          <label for="tanggal_awal">tanggal awal periode</label>
+        <form action="pdf/output/laporan_penjualan_perproduk.php/" method="get" target="_blank">
+          <label for="ProdukID">Pilih Produk</label>
+          <select name="ProdukID" class="form-control" required>
+            <option value="">-- PiliH PRODUK --</option>
+            <?php
+            $sql_produk = "SELECT * FROM produk";
+            $query_produk = mysqli_query($koneksi, $sql_produk);
+            while ($produk = mysqli_fetch_array($query_produk)){
+              echo "<option value='$produk[ProdukID]'>$produk[NamaProduk]</option>";
+            }
+            ?>
+          </select>
+          <label for="tanggal_awal">Tanggal Awal Penjualan </label>
           <input type="date" name="tanggal_awal" class="form-control" required>
 
-          <label for="tanggal_akhir">tanggal akhir periode</label>
+          <label for="tanggal_akhir">Tanggal Akhir Penjualan </label>
           <input type="date" name="tanggal_akhir" class="form-control" required>
           <br>
-          <button type="submit" class="btn btn-block bg-danger"><i class="fas fa-print"></i>cetak</button>
+          <button type="sumbit" class="btn btn-block bg-danger"><i class="fas fa-print"></i>cetak</button>
 
         </form>
-
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn bg-blue" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

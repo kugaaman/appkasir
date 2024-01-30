@@ -52,6 +52,7 @@ if ($_POST) {
         // echo $sql2;
         mysqli_query($koneksi, $sql2);
         header('location:../index.php?p=tambah');
+
     } else if ($_POST['aksi'] == 'simpan-penjualan') {
         $id_user = $_SESSION['id'];
         $PelangganID = $_POST['PelangganID'];
@@ -83,6 +84,10 @@ if ($_POST) {
                 $sql4 = " INSERT INTO detailpenjual (DetailID,PenjualID,ProdukID,JumlahProduk,Harga) values(DEFAULT,$PenjualID,$ProdukID,$Jumlah,$Harga)";
                 // echo $sql4. "<br>";
                 mysqli_query($koneksi, $sql4);
+
+                // // Mengurangi nilai stok 
+                // $sql5="UPDATE produk SET Stok=Stok-$Jumlah WHERE ProdukID=$ProdukID";
+                // mysqli_query($koneksi,$sql5);
             }
             // perintah mengosongkan kerajng
             mysqli_query($koneksi, "DELETE FROM keranjang WHERE id_user=$id_user");
